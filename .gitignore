@@ -11,8 +11,9 @@ __pycache__/
 ._*
 staller logs
 
-#Bower files
-SSP/static/bower_components
+#Bower and node files
+node_modules/
+bower_components/
 
 # pycharm settings
 .idea/
