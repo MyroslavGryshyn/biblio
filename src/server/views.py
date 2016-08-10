@@ -1,5 +1,6 @@
-from flask import jsonify, render_template, make_response
+from flask import jsonify, render_template, make_response, abort
 from flask_restful import Resource
+
 from src.server import models
 
 
@@ -15,12 +16,17 @@ class Books(Resource):
         return jsonify([book.as_dict() for book in books])
 
     def post(self):
+        # TODO validation of post data
         pass
 
 
 class Book(Resource):
-    def get(self):
-        pass
+    def get(self, id):
+        # TODO error handler, when model for get not found
+        book = models.Book.query.get(id)
+        if not book:
+            abort(404)
+        return jsonify(book.as_dict())
 
     def put(self):
         pass
