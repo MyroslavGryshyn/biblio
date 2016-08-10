@@ -15,6 +15,8 @@ def create_dummy_db(path_json):
 
 
 class Book(db.Model):
+    __tablename__ = 'books'
+
     id = db.Column(db.Integer, primary_key=True)
     book_name = db.Column(db.String(80), unique=True)
     book_author = db.Column(db.String(120), unique=True)

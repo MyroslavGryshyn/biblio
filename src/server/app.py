@@ -4,7 +4,7 @@ from flask import Flask
 
 import settings
 
-app = Flask('__name__')
+app = Flask('__name__', template_folder=settings.DevelopmentConfig.template_dir)
 
 
 def create_app(config_module=settings.DevelopmentConfig):
@@ -21,5 +21,5 @@ def _init_db(app):
 
 
 def _init_views(app):
-    from src.server.views import add_resource
+    from src.server.urls import add_resource
     add_resource(app)
