@@ -1,7 +1,17 @@
+import json
+
 from flask_sqlalchemy import SQLAlchemy
 from src.server.app import app
 
 db = SQLAlchemy(app)
+
+def create_dummy_db(path_json):
+    with open(path_json, 'r') as json_file:
+        data = json.loads(json_file.read())
+    for book in data['books']:
+        current_book = Book(book['name'], book['author'], int(book['status']))
+        db.session.add(current_book)
+        db.session.commit()
 
 
 class Book(db.Model):
@@ -19,5 +29,5 @@ class Book(db.Model):
         book_as_dict = {}
         book_as_dict['book_name'] = self.book_name
         book_as_dict['book_author'] = self.book_author
-        book_as_dict['book_author'] = self.book_author
+        book_as_dict['book_status'] = self.book_status
         return book_as_dict

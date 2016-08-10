@@ -1,7 +1,7 @@
 import os
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-SQLALCHEMY_DATABASE_URI = ''.join(['sqlite:///', PROJECT_ROOT + '/', 'test.db'])
+SQLALCHEMY_DATABASE_URI = ''.join(['sqlite:///', PROJECT_ROOT + '/', 'biblio.db'])
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 SECRET_KEY = 'sdfgsdgsfasfdasdf23423wd23dfasfd'
 
