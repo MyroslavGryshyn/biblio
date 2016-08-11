@@ -1,6 +1,6 @@
 from enum import Enum
 
-from flask import jsonify, render_template, make_response, abort, request
+from flask import jsonify, render_template, abort, request, send_file, make_response
 from flask_restful import Resource
 
 from src.server import models
@@ -25,11 +25,13 @@ class Status(Enum):
 
 class HelloWorld(Resource):
     def get(self):
-        headers = {'Content-Type': 'text/html'}
-        return make_response(
-            render_template('index.html'),
-            Status.HTTP_200_OK.value,
-            headers)
+        # headers = {'Content-Type': 'text/html'}
+        # return make_response(
+        #     render_template('index.html'),
+        #     Status.HTTP_200_OK.value,
+        #     headers)
+        # return send_file('src/client/index.html')
+        return make_response(open('src/client/index.html').read())
 
 
 class Books(Resource):
