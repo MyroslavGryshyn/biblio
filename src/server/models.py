@@ -35,6 +35,7 @@ class Book(db.Model):
 
     def as_dict(self):
         book_as_dict = {}
+        book_as_dict['id'] = self.id
         book_as_dict['book_name'] = self.book_name
         book_as_dict['book_author'] = self.book_author
         book_as_dict['book_status'] = self.book_status
