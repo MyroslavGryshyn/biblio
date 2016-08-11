@@ -1,9 +1,12 @@
 import json
 
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
 from src.server.app import app
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 def create_dummy_db(path_json):
     with open(path_json, 'r') as json_file:
