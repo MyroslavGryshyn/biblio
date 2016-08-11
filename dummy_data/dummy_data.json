@@ -1,17 +1,18 @@
 {"books": [
   {
-    "name": "Book_1",
-    "author": "Author_1",
-    "status": "0"
+    "book_name": "Book_1",
+    "book_author": "book_author_1",
+    "book_status": "0",
+    "book_description": "The book describes something"
   },
   {
-    "name": "Book_2",
-    "author": "Author_2",
-    "status": "0"
+    "book_name": "Book_2",
+    "book_author": "book_author_2",
+    "book_status": "0"
   },
   {
-    "name": "Book_3",
-    "author": "Author_3",
-    "status": "0"
+    "book_name": "Book_3",
+    "book_author": "book_author_3",
+    "book_status": "0"
   }
 ]}

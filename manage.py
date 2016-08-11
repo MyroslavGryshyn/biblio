@@ -11,9 +11,9 @@ manager = Manager(create_app)
 manager.add_command('runserver', Server(host='0.0.0.0', port='5000'))
 manager.add_command('db', MigrateCommand)
 
-# @manager.command
-# def create_db():
-#     db.create_all()
+@manager.command
+def create_db():
+    db.create_all()
 
 @manager.command
 def drop_db():
