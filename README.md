@@ -4,9 +4,9 @@ Run:
 python manage.py runserver
 
 Create DB:
-1. python manage.py db init /n
-2. python manage.py db migrate /n
-3. python manage.py db upgrade /n
+1.python manage.py db init
+2.python manage.py db migrate
+3.python manage.py db upgrade
 
 Dummy data
 python manage.py dummy_db
