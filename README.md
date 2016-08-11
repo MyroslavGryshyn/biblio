@@ -10,3 +10,4 @@ Create DB:
 
 Dummy data
 python manage.py dummy_db
+
