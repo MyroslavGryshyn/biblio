@@ -13,16 +13,23 @@
 
     {{ 2 + 2 }}
 
-    <section ui-view>
-        <i>Some content will load here!</i>
-    </section>
-
-    <ul >
-        <li><a href="#/view1">view1</a></li>
-        <li><a href="#/view2">view2</a></li>
-    </ul>
+    </br>
+    </br>
 
 
-<script src="src/client/lib/angular.min.js"></script>
+    <div>
+        <a ui-sref="state1">State 1</a>
+        <a ui-sref="state2">State 2</a>
+    </div>
+    <div ui-view></div>
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='lib/angular.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='lib/angular-ui-router.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='components/main/biblioAppCtrl.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='components/view1/state.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='components/view2/state.js') }}"></script>
+
 </body>
 </html>

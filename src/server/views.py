@@ -1,10 +1,13 @@
 from enum import Enum
 
-from flask import jsonify, render_template, abort, request, send_file, make_response
+from flask import (jsonify, render_template, abort, request, send_file,
+                   make_response, send_from_directory)
 from flask_restful import Resource
 
+import settings
 from src.server import models
 from src.server.models import db
+
 
 
 class Status(Enum):
@@ -25,13 +28,20 @@ class Status(Enum):
 
 class HelloWorld(Resource):
     def get(self):
-        # headers = {'Content-Type': 'text/html'}
-        # return make_response(
-        #     render_template('index.html'),
-        #     Status.HTTP_200_OK.value,
-        #     headers)
+        headers = {'Content-Type': 'text/html'}
+        return make_response(
+            render_template('index.html'),
+            Status.HTTP_200_OK.value,
+            headers)
         # return send_file('src/client/index.html')
-        return make_response(open('src/client/index.html').read())
+        # return make_response(open('src/client/index.html').read())
+
+
+class GetPartialStatic(Resource):
+    def get(self, file_path):
+        return send_from_directory(
+            settings.DevelopmentConfig.static_folder,
+            file_path)
 
 
 class Books(Resource):
@@ -41,7 +51,6 @@ class Books(Resource):
 
     def post(self):
         # TODO validation of post data
-
         if not request.json:
             # abort(400)
             return None, Status.HTTP_400_BAD_REQUEST.value
@@ -57,7 +66,6 @@ class Books(Resource):
 
 
 class Book(Resource):
-
     def get(self, id):
         # TODO error handler, when model for get not found
         detail_book = models.Book.query.get(id)

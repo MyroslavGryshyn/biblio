@@ -4,7 +4,9 @@ from flask import Flask
 
 import settings
 
-app = Flask('__name__', template_folder=settings.DevelopmentConfig.template_dir)
+app = Flask('__name__',
+            template_folder=settings.DevelopmentConfig.template_dir,
+            static_folder=settings.DevelopmentConfig.static_folder)
 
 
 def create_app(config_module=settings.DevelopmentConfig):
