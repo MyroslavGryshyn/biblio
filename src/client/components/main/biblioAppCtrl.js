@@ -1,6 +1,10 @@
 'use strict';
 
 angular.module('biblioApp').
-    controller('biblioAppCtrl', ['$scope', function ($scope) {
-        $scope.my_var = 'test1123'
+    controller('biblioAppCtrl', ['$state', function ($state) {
+        var vm = this;
+        vm.openState = function(name) {
+            // debugger
+            $state.go(name);
+        }
     }]);

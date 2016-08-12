@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="biblioApp" xmlns="http://www.w3.org/1999/html">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body ng-controller="biblioAppCtrl">
+<body>
+<article ng-controller="biblioAppCtrl as $ctrl">
     <span>
         <a href="/api/v1/books">Get_books</a>
     </span>
@@ -18,9 +20,11 @@
 
 
     <div>
-        <a ui-sref="state1">State 1</a>
-        <a ui-sref="state2">State 2</a>
+        <button ng-click="$ctrl.openState('state1')">State 1</button>
+        <button ng-click="$ctrl.openState('state2')">State 2</button>
     </div>
+</article>
+
     <div ui-view></div>
 
 
